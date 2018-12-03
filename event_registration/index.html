@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div id="root">
+    <checkin-status></checkin-status>
+
+    <filter-registrees></filter-registrees>
+
+    <registrees v-on:check-in="checkIn"></registrees>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+
+  <script src="../event_registration/registrees.js"></script>
+  <script src="../event_registration/filterRegistrees.js"></script>
+  <script src="../event_registration/checkinStatus.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <script>
+
+   var app = new Vue({
+     el: '#root',
+
+     methods: {
+       checkIn() {
+         alert("Checked in")
+       }
+     }
+
+   })
+
+  </script>
+
+
+</body>
+
+</html>
