@@ -3,7 +3,6 @@ Vue.component('checkin-status', {
 
   template: `
             <!-- <nav class="level"> -->
-
              <!-- left side -->
              <div class="columns checkin-info" >
               <div class="column is-one-third is-offset-one-fifth is-4">
@@ -36,7 +35,6 @@ Vue.component('checkin-status', {
               </div>
             </div>
 
- <!--            </nav> -->
             `,
 
   data() {

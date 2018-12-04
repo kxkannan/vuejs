@@ -16,7 +16,7 @@
 
     <filter-registrees></filter-registrees>
 
-    <registrees v-on:check-in="checkIn"></registrees>
+    <registrees v-on:check-in="checkIn" :people="registrees"></registrees>
   </div>
 
 
@@ -34,10 +34,39 @@
    var app = new Vue({
      el: '#root',
 
+     data: {
+
+           registrees: [
+             { id: 1, firstName: 'John', lastName: 'Doe', email: 'john@doe.com', phone: '303-555-1212',   shirtSize: 'XL',  registered: false },
+             { id: 2, firstName: 'Susan', lastName: 'Doe', email: 'susan@doe.com', phone: '303-555-1212', shirtSize: 'M',   registered: false },
+             { id: 3, firstName: 'Jack', lastName: 'Doe', email: 'jack81@doe.com', phone: '303-555-1212', shirtSize: 'S',   registered: true },
+             { id: 4, firstName: 'Edwin', lastName: 'Doe', email: 'ed2@doe.com', phone: '303-555-1212',   shirtSize: 'S',   registered: false },
+           ]
+
+     },
+
      methods: {
-       checkIn() {
-         alert("Checked in")
+       checkIn(registreeId) {
+
+
+         let updatedRegistrees = this.registrees.map( registree => {
+           if (registree.id == registreeId){
+             registree.registered = true
+           }
+           return registree;
+
+         });
+         this.registrees = updatedRegistrees;
+         console.log(" after checkin data.registrees: " + JSON.stringify(this.$data.registrees))
        }
+     },
+
+     computed: {
+
+       tree() {
+         return this.registrees;
+       }
+
      }
 
    })
